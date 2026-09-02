@@ -125,7 +125,44 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ articleId }) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareTitle = article.title;
 
+  const jsonLdArticle = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': currentUrl
+    },
+    headline: article.title,
+    image: article.featuredImage ? [article.featuredImage] : [],
+    datePublished: article.publishDate,
+    dateModified: article.publishDate, // Fallback if update date missing
+    author: {
+      '@type': 'Person',
+      name: article.author || 'Priya News'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Priya News',
+      logo: {
+        '@type': 'ImageObject',
+        url: window.location.origin + '/logo.png'
+      }
+    },
+    description: article.summary || article.title
+  };
+
+  const jsonLdBreadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: window.location.origin },
+      { '@type': 'ListItem', position: 2, name: article.categoryName || 'News', item: `${window.location.origin}/category/${article.categoryId}` },
+      { '@type': 'ListItem', position: 3, name: article.title, item: currentUrl }
+    ]
+  };
+
   const handleShareFacebook = () => {
+
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
       '_blank',
@@ -156,6 +193,10 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ articleId }) => {
 
   return (
     <div className="space-y-6 pb-12">
+      {/* SEO Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-[13px] text-[#787c88] font-medium pt-1">
         <button
@@ -302,7 +343,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ articleId }) => {
 
             {/* Article Body Content */}
             <div
-              className={`text-[#1e293b] space-y-5 transition-all duration-200 ${
+              className={`text-[#1e293b] font-['Noto_Sans_Bengali',sans-serif] space-y-5 transition-all duration-200 ${
                 fontSize === 'large'
                   ? 'text-[19px] leading-[2.1]'
                   : fontSize === 'xlarge'

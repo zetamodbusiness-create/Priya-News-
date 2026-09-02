@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Quick Nav Links: Exactly Home & Articles */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[#8a8ea0] mb-6 font-semibold">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[#8a8ea0] mb-4 font-semibold">
           <button
             onClick={() => setViewMode({ type: 'home' })}
             className="hover:text-white cursor-pointer transition-colors flex items-center gap-1.5"
@@ -55,6 +55,16 @@ export const Footer: React.FC = () => {
             <Newspaper className="w-3.5 h-3.5" />
             <span>আর্টিকেল</span>
           </button>
+        </div>
+
+        {/* E-E-A-T & Trust Links */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-[#6e7284] mb-8 font-medium">
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">আমাদের সম্পর্কে</a>
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">যোগাযোগ</a>
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">এডিটোরিয়াল পলিসি</a>
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">প্রাইভেসি পলিসি</a>
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">শর্তাবলী</a>
+          <a href="#" className="hover:text-[#ff3b4e] transition-colors">দাবিত্যাগ</a>
         </div>
 
         {/* Footer Bottom */}

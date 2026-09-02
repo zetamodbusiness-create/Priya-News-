@@ -67,8 +67,40 @@ export const HomeView: React.FC = () => {
     );
   }
 
+  const jsonLdWebSite = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Priya News',
+    url: window.location.origin,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${window.location.origin}/search?q={search_term_string}`
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
+  const jsonLdOrganization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Priya News',
+    url: window.location.origin,
+    logo: window.location.origin + '/logo.png',
+    sameAs: [
+      'https://facebook.com',
+      'https://youtube.com',
+      'https://twitter.com'
+    ]
+  };
+
   return (
     <div className="space-y-8 pb-12">
+      {/* SEO Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
+
       {/* 1. Featured Section (High-polish Blogger Featured Grid) */}
       {(featuredMain || otherFeatured.length > 0) && (
         <section className="pt-2 sm:pt-4">
