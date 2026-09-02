@@ -8,12 +8,16 @@ import { VideosView } from './components/VideosView';
 import { GalleryView } from './components/GalleryView';
 import { SearchView } from './components/SearchView';
 import { Footer } from './components/Footer';
+import { AdBlockDetector } from './components/AdBlockDetector';
 
 const AppContent: React.FC = () => {
   const { viewMode } = useNews();
 
   return (
     <div className="min-h-screen bg-[#f6f7fb] text-[#24262f] flex flex-col font-['Hind_Siliguri',sans-serif]">
+      {/* Strict Ad Blocker Protection */}
+      <AdBlockDetector />
+      
       {/* Top Main Header & Navigation Bar */}
       <Header />
 
