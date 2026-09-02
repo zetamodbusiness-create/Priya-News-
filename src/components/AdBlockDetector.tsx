@@ -102,7 +102,13 @@ export const AdBlockDetector: React.FC = () => {
         </div>
 
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => {
+            setIsChecking(true);
+            setTimeout(() => {
+              window.location.href = window.location.href;
+              window.location.reload();
+            }, 300);
+          }}
           disabled={isChecking}
           className="w-full bg-[#ff3b4e] hover:bg-[#e63546] text-white font-bold py-3.5 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-['Hind_Siliguri',sans-serif]"
         >
