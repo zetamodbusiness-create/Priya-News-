@@ -1,0 +1,6 @@
+{
+  "name": "Priya News Link",
+  "description": "দ্রুতগতির ও নির্ভরযোগ্য বাংলা ও ইংরেজি অনলাইন নিউজ পোর্টাল, ভিডিও ও ফটো গ্যালারি।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
