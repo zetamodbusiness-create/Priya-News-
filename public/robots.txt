@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://3nbf4.com/sitemap.xml
+Sitemap: https://priyanews.pages.dev/sitemap.xml

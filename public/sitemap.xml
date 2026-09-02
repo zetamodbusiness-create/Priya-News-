@@ -7,7 +7,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://3nbf4.com/</loc>
+    <loc>https://priyanews.pages.dev/</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>1.00</priority>
@@ -15,31 +15,31 @@
 
   <!-- Categories -->
   <url>
-    <loc>https://3nbf4.com/category/national</loc>
+    <loc>https://priyanews.pages.dev/category/national</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://3nbf4.com/category/international</loc>
+    <loc>https://priyanews.pages.dev/category/international</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://3nbf4.com/category/politics</loc>
+    <loc>https://priyanews.pages.dev/category/politics</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://3nbf4.com/category/sports</loc>
+    <loc>https://priyanews.pages.dev/category/sports</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://3nbf4.com/category/entertainment</loc>
+    <loc>https://priyanews.pages.dev/category/entertainment</loc>
     <lastmod>2026-09-02T12:00:00+00:00</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.80</priority>
