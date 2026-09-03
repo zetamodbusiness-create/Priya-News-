@@ -104,7 +104,21 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [articles, setArticles] = useState<NewsArticle[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.ARTICLES);
-      return saved ? JSON.parse(saved) : INITIAL_ARTICLES;
+      if (!saved) return INITIAL_ARTICLES;
+      const parsed: NewsArticle[] = JSON.parse(saved);
+      const initialMap = new Map(INITIAL_ARTICLES.map((a) => [a.id, a]));
+      const updated = parsed.map((item) => {
+        const init = initialMap.get(item.id);
+        if (init && item.title.includes('আপতিকর')) {
+          return { ...item, title: init.title };
+        }
+        return item;
+      });
+      const existingIds = new Set(updated.map((a) => a.id));
+      const missing = INITIAL_ARTICLES.filter((a) => !existingIds.has(a.id));
+      const merged = [...missing, ...updated];
+      localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(merged));
+      return merged;
     } catch {
       return INITIAL_ARTICLES;
     }
@@ -122,7 +136,21 @@ export const NewsProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [videos, setVideos] = useState<VideoEntry[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.VIDEOS);
-      return saved ? JSON.parse(saved) : INITIAL_VIDEOS;
+      if (!saved) return INITIAL_VIDEOS;
+      const parsed: VideoEntry[] = JSON.parse(saved);
+      const initialVideoMap = new Map(INITIAL_VIDEOS.map((v) => [v.id, v]));
+      const updated = parsed.map((item) => {
+        const init = initialVideoMap.get(item.id);
+        if (init && item.title.includes('আপতিকর')) {
+          return { ...item, title: init.title };
+        }
+        return item;
+      });
+      const existingIds = new Set(updated.map((v) => v.id));
+      const missing = INITIAL_VIDEOS.filter((v) => !existingIds.has(v.id));
+      const merged = [...missing, ...updated];
+      localStorage.setItem(STORAGE_KEYS.VIDEOS, JSON.stringify(merged));
+      return merged;
     } catch {
       return INITIAL_VIDEOS;
     }

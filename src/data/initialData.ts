@@ -14,24 +14,55 @@ export const INITIAL_CATEGORIES: Category[] = [
 
 export const INITIAL_ARTICLES: NewsArticle[] = [
   {
+    id: 'kitchen-incident-viral-video',
+    title: 'রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড',
+    subtitle: 'Objectionable Kitchen Incident Video Sparks Intense Debate Across Social Media',
+    summary: 'A controversial video showing objectionable activities inside a kitchen setting has gone viral across social media platforms, sparking intense discussions and widespread public reaction. Read the full report on Priya News.',
+    content: 'A controversial video featuring objectionable and inappropriate activities inside a kitchen setting has rapidly gone viral across various social media platforms, triggering widespread debate and strong public reaction. The footage, which surfaced over the past 24 hours, quickly garnered thousands of views, shares, and comments across Facebook, TikTok, and other social channels.\n\nAccording to emerging reports, the clip appears to have been recorded in a domestic kitchen setting before being circulated or leaked to online networks. Netizens and viewers have voiced sharp criticism over the explicit nature of the behavior, while discussions continue regarding the context and origins of the recorded footage.\n\nDigital media analysts pointed out that sensational content frequently spreads at high velocity across social media feeds, prompting moderation teams on major platforms to review the material under community safety guidelines. Several internet users and community advocates have also urged the public to refrain from circulating sensitive or unverified video clips.\n\nAuthorities and digital ethics experts continue to emphasize the importance of online responsibility and personal privacy in digital communications. Priya News Link is closely monitoring the development and will provide further verified updates as they become available.\n\n#PriyaNews #ViralVideo #Controversy #TrendingNews #SocialMediaViral #KitchenIncident',
+    categoryId: 'entertainment',
+    categoryName: 'বিনোদন',
+    tags: ['PriyaNews', 'ViralVideo', 'KitchenIncident', 'TrendingNews', 'Controversy', 'ViralNews'],
+    featuredImage: 'https://i.ibb.co.com/BVGcrTbZ/Priya-News-Thumbnail-3.png',
+    author: 'অনলাইন ডেস্ক',
+    authorRole: 'Priya News Digital Desk',
+    publishDate: new Date().toISOString(),
+    isTopStory: true,
+    isBreaking: true,
+    isFeatured: true,
+    viewsCount: 248,
+    status: 'published'
+  },
+  {
     id: 'park-incident-viral-video',
     title: 'পার্কের মধ্যে তরুণ তরুণীর অনৈতিক কর্মকাণ্ড পুরো ভিডিও',
     summary: 'পার্কে তরুণ-তরুণীর অনৈতিক কর্মকাণ্ডের ভিডিও ভাইরাল। ঘটনাটি নিয়ে সামাজিক যোগাযোগমাধ্যমে ব্যাপক আলোচনা ও সমালোচনা চলছে। বিস্তারিত জানতে দেখুন Priya News-এর সম্পূর্ণ ভিডিও নিউজ।',
-    content: '<p>পার্কে তরুণ-তরুণীর অনৈতিক কর্মকাণ্ডের ভিডিও ভাইরাল। ঘটনাটি নিয়ে সামাজিক যোগাযোগমাধ্যমে ব্যাপক আলোচনা ও সমালোচনা চলছে। বিস্তারিত জানতে দেখুন Priya News-এর সম্পূর্ণ ভিডিও নিউজ।</p><p>#ViralVideo #BanglaNews #PriyaNews #ParkIncident #ViralNews</p>',
+    content: 'পার্কে তরুণ-তরুণীর অনৈতিক কর্মকাণ্ডের ভিডিও ভাইরাল। ঘটনাটি নিয়ে সামাজিক যোগাযোগমাধ্যমে ব্যাপক আলোচনা ও সমালোচনা চলছে। বিস্তারিত জানতে দেখুন Priya News-এর সম্পূর্ণ ভিডিও নিউজ।\n\n#ViralVideo #BanglaNews #PriyaNews #ParkIncident #ViralNews',
     categoryId: 'national',
     categoryName: 'জাতীয়',
     tags: ['ViralVideo', 'BanglaNews', 'PriyaNews', 'ParkIncident', 'ViralNews'],
     featuredImage: 'https://i.ibb.co.com/gZyF9Nkj/Priya-News-Thumbnail-1.png',
     author: 'নিজস্ব প্রতিবেদক',
     publishDate: new Date().toISOString(),
-    isTopStory: true,
-    isBreaking: true,
-    viewsCount: 0,
+    isTopStory: false,
+    isBreaking: false,
+    isFeatured: true,
+    viewsCount: 1520,
     status: 'published'
   }
 ];
 
 export const INITIAL_VIDEOS: VideoEntry[] = [
+  {
+    id: 'kitchen-incident-video',
+    title: 'রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড পুরো ভিডিও',
+    description: 'A controversial video showing objectionable activities in a kitchen has gone viral across social media platforms, sparking intense debate and discussion.',
+    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    youtubeId: 'dQw4w9WgXcQ',
+    customThumbnail: 'https://i.ibb.co.com/BVGcrTbZ/Priya-News-Thumbnail-3.png',
+    category: 'entertainment',
+    publishDate: new Date().toISOString(),
+    viewsCount: 140
+  },
   {
     id: 'park-incident-video',
     title: 'পার্কের মধ্যে তরুণ তরুণীর অনৈতিক কর্মকাণ্ড পুরো ভিডিও',
@@ -41,7 +72,7 @@ export const INITIAL_VIDEOS: VideoEntry[] = [
     customThumbnail: 'https://i.ibb.co.com/gZyF9Nkj/Priya-News-Thumbnail-1.png',
     category: 'national',
     publishDate: new Date().toISOString(),
-    viewsCount: 0
+    viewsCount: 890
   }
 ];
 
