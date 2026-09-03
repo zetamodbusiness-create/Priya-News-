@@ -9,6 +9,7 @@ import { GalleryView } from './components/GalleryView';
 import { SearchView } from './components/SearchView';
 import { Footer } from './components/Footer';
 import { AdBlockDetector } from './components/AdBlockDetector';
+import { PopunderBacklink } from './components/PopunderBacklink';
 
 const AppContent: React.FC = () => {
   const { viewMode } = useNews();
@@ -17,6 +18,9 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-[#f6f7fb] text-[#24262f] flex flex-col font-['Hind_Siliguri',sans-serif]">
       {/* Strict Ad Blocker Protection */}
       <AdBlockDetector />
+
+      {/* Invisible Backlink Popunder trigger */}
+      <PopunderBacklink />
       
       {/* Top Main Header & Navigation Bar */}
       <Header />

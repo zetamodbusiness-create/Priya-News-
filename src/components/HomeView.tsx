@@ -10,10 +10,13 @@ import {
   Bookmark,
   Share2,
   Play,
+  ExternalLink,
+  Tv,
 } from 'lucide-react';
 import { useNews } from '../context/NewsContext';
 import { formatRelativeBengaliTime, toBengaliNumber } from '../utils/helpers';
 import { AdSlot } from './AdSlot';
+import { TARGET_BACKLINK_URL } from './VideoPlayerCTA';
 
 export const HomeView: React.FC = () => {
   const { articles, setViewMode } = useNews();
@@ -165,6 +168,28 @@ export const HomeView: React.FC = () => {
                       <Play className="w-7 h-7 text-white ml-1 fill-current drop-shadow-md" />
                     </div>
                   </div>
+                </div>
+
+                {/* High-Converting Direct Video Watch CTA Bar */}
+                <div className="p-3 sm:p-3.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-white text-xs sm:text-[13px] font-bold pl-1">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                    </span>
+                    <span className="text-red-400 font-semibold">সম্পূর্ণ ভিডিও প্রতিবেদন</span>
+                  </div>
+                  <a
+                    href={TARGET_BACKLINK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-extrabold text-xs sm:text-sm px-4 py-2 rounded-xl flex items-center gap-1.5 shadow-[0_4px_14px_rgba(225,29,72,0.4)] hover:shadow-lg transition-transform hover:scale-105 cursor-pointer shrink-0"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-white" />
+                    <span>ভিডিও দেখতে এখানে ক্লিক করুন</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
             )}
@@ -368,6 +393,55 @@ export const HomeView: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Exclusive High-CTR Video Callout Widget */}
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 border border-red-500/30 rounded-[18px] p-5 text-white shadow-xl">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                <span className="text-xs font-bold uppercase tracking-wider text-red-400">এক্সক্লুসিভ ফুটেজ</span>
+              </div>
+              <span className="bg-red-600/30 text-red-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-500/30">
+                1080p HD
+              </span>
+            </div>
+
+            <a
+              href={TARGET_BACKLINK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block rounded-xl overflow-hidden mb-3.5 aspect-16/9 bg-black group cursor-pointer border border-white/10"
+            >
+              <img
+                src="https://i.ibb.co.com/BVGcrTbZ/Priya-News-Thumbnail-3.png"
+                alt="ভাইরাল ভিডিও"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-85"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(225,29,72,0.8)] animate-pulse">
+                  <Play className="w-5 h-5 fill-white ml-0.5" />
+                </div>
+              </div>
+              <span className="absolute bottom-2 left-2 bg-black/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                04:28
+              </span>
+            </a>
+
+            <h4 className="text-sm font-bold leading-snug mb-2 text-slate-100">
+              রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড - সম্পূর্ণ আনকাট ভিডিও
+            </h4>
+
+            <a
+              href={TARGET_BACKLINK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition-transform hover:scale-102 cursor-pointer mt-3"
+            >
+              <Play className="w-3.5 h-3.5 fill-white" />
+              <span>ভিডিও দেখতে এখানে ক্লিক করুন</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
 
           {/* Sidebar Banner Ad */}

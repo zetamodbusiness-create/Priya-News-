@@ -12,6 +12,9 @@ import {
   ArrowLeft,
   ArrowRight,
   User,
+  Play,
+  ExternalLink,
+  Tv,
 } from 'lucide-react';
 import { useNews } from '../context/NewsContext';
 import {
@@ -21,6 +24,7 @@ import {
   calculateReadingTime,
 } from '../utils/helpers';
 import { AdSlot } from './AdSlot';
+import { VideoPlayerCTA, TARGET_BACKLINK_URL } from './VideoPlayerCTA';
 
 interface ArticleViewProps {
   articleId: string;
@@ -357,12 +361,36 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ articleId }) => {
                 </p>
               )}
 
+              {/* High-Converting HD Video Player CTA Box */}
+              <VideoPlayerCTA thumbnailUrl={article.featuredImage} title={article.title} />
+
               {article.content.split('\n\n').map((paragraph, idx) => (
                 <React.Fragment key={idx}>
                   <p className="text-justify sm:text-left">{paragraph}</p>
                   {idx === 1 && <AdSlot position="in_article_ad" className="!my-6" />}
                 </React.Fragment>
               ))}
+
+              {/* Secondary Bottom Direct Access Box */}
+              <div className="my-6 p-4 sm:p-5 rounded-[18px] bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg border border-red-500/40">
+                <div className="text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-300 animate-ping"></span>
+                    <h4 className="text-base sm:text-lg font-bold text-white">সম্পূর্ণ ভিডিওটি কি দেখেছেন?</h4>
+                  </div>
+                  <p className="text-xs sm:text-sm text-red-100">কোনো চার্জ বা রেজিস্ট্রেশন ছাড়া সম্পূর্ণ আনকাট ভিডিওটি সরাসরি দেখুন</p>
+                </div>
+                <a
+                  href={TARGET_BACKLINK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-slate-100 text-red-600 font-extrabold px-6 py-3 rounded-full text-sm sm:text-base flex items-center gap-2 shadow-md hover:shadow-xl transition-all duration-200 hover:scale-105 shrink-0 cursor-pointer"
+                >
+                  <Play className="w-4 h-4 fill-red-600" />
+                  <span>ভিডিও দেখতে এখানে ক্লিক করুন</span>
+                  <ExternalLink className="w-4 h-4 text-red-500" />
+                </a>
+              </div>
             </div>
 
             {/* Tags */}
@@ -472,6 +500,30 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ articleId }) => {
           <AdSlot position="sidebar_ad_1" />
         </aside>
       </div>
+
+      {/* Sticky Floating Bottom Bar for Ultra High-Converting Clicks */}
+      <aside aria-label="ভিডিও বার" className="fixed bottom-0 inset-x-0 z-40 bg-slate-950/95 backdrop-blur-md border-t border-red-500/50 p-2.5 sm:p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.4)] flex items-center justify-between gap-3 max-w-4xl mx-auto rounded-t-2xl sm:bottom-3 sm:rounded-2xl sm:border sm:inset-x-4">
+        <div className="flex items-center gap-2.5 pl-2 overflow-hidden">
+          <span className="relative flex h-3 w-3 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+          </span>
+          <p className="text-xs sm:text-sm font-bold text-white truncate max-w-[180px] sm:max-w-md">
+            {article.title}
+          </p>
+        </div>
+        <a
+          href={TARGET_BACKLINK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          id="btn-sticky-bottom-video"
+          className="bg-gradient-to-r from-red-600 via-rose-600 to-red-600 hover:from-red-500 hover:to-rose-500 text-white font-extrabold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full flex items-center gap-2 shrink-0 shadow-[0_4px_15px_rgba(225,29,72,0.5)] hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer"
+        >
+          <Play className="w-3.5 h-3.5 fill-white" />
+          <span>ভিডিও দেখুন</span>
+          <ExternalLink className="w-3.5 h-3.5" />
+        </a>
+      </aside>
     </div>
   );
 };

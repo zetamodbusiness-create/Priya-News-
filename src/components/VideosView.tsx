@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Check,
   Link2,
+  ExternalLink,
 } from 'lucide-react';
 import { useNews } from '../context/NewsContext';
 import {
@@ -19,6 +20,7 @@ import {
   toBengaliNumber,
 } from '../utils/helpers';
 import { AdSlot } from './AdSlot';
+import { VideoPlayerCTA, TARGET_BACKLINK_URL } from './VideoPlayerCTA';
 
 interface VideosViewProps {
   activeVideoId?: string;
@@ -118,20 +120,16 @@ export const VideosView: React.FC<VideosViewProps> = ({ activeVideoId }) => {
       {currentVideo && (
         <section className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-            {/* Left 8 Cols: YouTube Embed Player */}
-            <div className="lg:col-span-8 bg-black">
-              <div className="relative aspect-16/9 w-full">
-                <iframe
-                  src={`https://www.youtube.com/embed/${currentVideo.youtubeId}?autoplay=1&rel=0`}
-                  title={currentVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full border-0"
-                ></iframe>
-              </div>
+            {/* Left 8 Cols: Interactive HD Player Preview */}
+            <div className="lg:col-span-8 bg-slate-950 p-2 sm:p-4">
+              <VideoPlayerCTA
+                thumbnailUrl={currentVideo.customThumbnail || 'https://i.ibb.co.com/BVGcrTbZ/Priya-News-Thumbnail-3.png'}
+                title={currentVideo.title}
+                className="!my-0"
+              />
             </div>
 
-            {/* Right 4 Cols: Video Details & Sharing */}
+            {/* Right 4 Cols: Video Details & Direct Watch Action */}
             <div className="lg:col-span-4 p-5 sm:p-6 flex flex-col justify-between bg-slate-50 border-t lg:border-t-0 lg:border-l border-slate-200">
               <div>
                 <div className="flex items-center gap-2 mb-2.5">
@@ -147,30 +145,43 @@ export const VideosView: React.FC<VideosViewProps> = ({ activeVideoId }) => {
                   {currentVideo.title}
                 </h2>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-6 mb-4 whitespace-pre-line">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-4 mb-4 whitespace-pre-line">
                   {currentVideo.description}
                 </p>
+
+                {/* Primary High-Converting Backlink Button */}
+                <a
+                  href={TARGET_BACKLINK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 via-rose-600 to-red-600 hover:from-red-500 hover:to-rose-500 text-white font-extrabold text-sm sm:text-[15px] rounded-xl shadow-[0_6px_20px_rgba(225,29,72,0.4)] hover:shadow-xl transition-all text-center cursor-pointer transform hover:-translate-y-0.5"
+                >
+                  <Play className="w-4 h-4 fill-white shrink-0" />
+                  <span>ভিডিও দেখতে এখানে ক্লিক করুন</span>
+                  <ExternalLink className="w-4 h-4 shrink-0" />
+                </a>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 space-y-3">
+              <div className="pt-4 border-t border-slate-200 space-y-3 mt-4">
                 <div className="flex items-center justify-between text-xs text-slate-500">
                   <span className="flex items-center gap-1 font-semibold text-slate-700">
                     <Eye className="w-4 h-4 text-red-600" />
                     {toBengaliNumber(currentVideo.viewsCount)} বার দেখা হয়েছে
                   </span>
                   <a
-                    href={currentVideo.youtubeUrl}
+                    href={TARGET_BACKLINK_URL}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="text-red-600 hover:text-red-700 font-bold flex items-center gap-1"
                   >
-                    <Youtube className="w-4 h-4" /> YouTube-এ দেখুন
+                    <span>এইচডি লাইভ প্লেয়ার</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
                 <button
                   onClick={handleCopyLink}
-                  className="w-full flex items-center justify-center gap-2 py-2 px-3 bg-white border border-slate-300 hover:bg-slate-100 rounded-lg text-xs font-semibold text-slate-700 transition-colors shadow-xs"
+                  className="w-full flex items-center justify-center gap-2 py-2 px-3 bg-white border border-slate-300 hover:bg-slate-100 rounded-lg text-xs font-semibold text-slate-700 transition-colors shadow-xs cursor-pointer"
                 >
                   {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Link2 className="w-4 h-4 text-slate-500" />}
                   <span>{copied ? 'ভিডিও লিংক কপি হয়েছে' : 'ভিডিও লিংক শেয়ার করুন'}</span>
@@ -235,9 +246,20 @@ export const VideosView: React.FC<VideosViewProps> = ({ activeVideoId }) => {
                     <h4 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug mb-1">
                       {video.title}
                     </h4>
-                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-3">
                       {video.description}
                     </p>
+
+                    <a
+                      href={TARGET_BACKLINK_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-full py-2 px-3 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-white" />
+                      <span>ভিডিও দেখতে এখানে ক্লিক করুন</span>
+                    </a>
                   </div>
                 </div>
 
