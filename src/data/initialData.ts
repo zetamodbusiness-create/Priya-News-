@@ -14,6 +14,25 @@ export const INITIAL_CATEGORIES: Category[] = [
 
 export const INITIAL_ARTICLES: NewsArticle[] = [
   {
+    id: 'jungle-incident-viral-video',
+    title: 'জঙ্গলের ভিতরে দুই যুবক-যুবতী অশালীন কর্মকাণ্ড',
+    subtitle: 'Jungle Incident Viral Video Sparks Widespread Reaction on Social Media',
+    summary: 'জঙ্গলের নির্জন পরিবেশে দুই যুবক-যুবতীর অশালীন কর্মকাণ্ডের একটি ভিডিও সামাজিক যোগাযোগ মাধ্যমে দ্রুত ছড়িয়ে পড়েছে এবং তীব্র সমালোচনার সৃষ্টি করেছে। Priya News-এ পড়ুন বিস্তারিত প্রতিবেদন ও দেখুন সম্পূর্ণ ভিডিও।',
+    content: 'জঙ্গলের নির্জন পরিবেশে দুই যুবক-যুবতীর অশালীন কর্মকাণ্ডের একটি ভিডিও সম্প্রতি সামাজিক যোগাযোগ মাধ্যমে ব্যাপক ভাইরাল হয়েছে। ভিডিওটি প্রকাশের পর থেকেই ফেসবুক, টেলিগ্রাম এবং বিভিন্ন অনলাইন প্ল্যাটফর্মে এটি নিয়ে তীব্র সমালোচনা ও আলোচনা তৈরি হয়েছে।\n\nস্থানীয় সূত্রে জানা যায়, নির্জন বনাঞ্চলে ধারণ করা এই আপত্তিকর ভিডিওটি কোনোভাবে ইন্টারনেটে ছড়িয়ে পড়ে। বিষয়টি নজরে আসার পর নেটিজেনরা সামাজিক অবক্ষয় ও অনৈতিক আচরণের বিরুদ্ধে তীব্র ক্ষোভ প্রকাশ করছেন।\n\nবিশেষজ্ঞরা বলছেন, সামাজিক যোগাযোগ মাধ্যমে সংবেদনশীল বা ব্যক্তিগত মুহূর্তের ভিডিও প্রচার ও শেয়ার করা আইনত দণ্ডনীয় অপরাধ। দায়িত্বশীলতার সাথে সামাজিক মাধ্যম ব্যবহারের জন্য সংশ্লিষ্ট সকলে আহ্বান জানিয়েছেন। Priya News Link ঘটনার বিস্তারিত তথ্য অনুসন্ধান করছে।\n\n#ViralVideo #JungleIncident #TrendingNews #PriyaNews #BanglaNews #SocialMediaViral',
+    categoryId: 'entertainment',
+    categoryName: 'বিনোদন',
+    tags: ['PriyaNews', 'ViralVideo', 'JungleIncident', 'TrendingNews', 'Controversy', 'ViralNews'],
+    featuredImage: 'https://i.ibb.co.com/Q5QS6wP/Priya-News-Thumbnail-4.png',
+    author: 'অনলাইন ডেস্ক',
+    authorRole: 'Priya News Digital Desk',
+    publishDate: new Date().toISOString(),
+    isTopStory: true,
+    isBreaking: true,
+    isFeatured: true,
+    viewsCount: 420,
+    status: 'published'
+  },
+  {
     id: 'kitchen-incident-viral-video',
     title: 'রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড',
     subtitle: 'Objectionable Kitchen Incident Video Sparks Intense Debate Across Social Media',
@@ -26,8 +45,8 @@ export const INITIAL_ARTICLES: NewsArticle[] = [
     author: 'অনলাইন ডেস্ক',
     authorRole: 'Priya News Digital Desk',
     publishDate: new Date().toISOString(),
-    isTopStory: true,
-    isBreaking: true,
+    isTopStory: false,
+    isBreaking: false,
     isFeatured: true,
     viewsCount: 248,
     status: 'published'
@@ -52,6 +71,17 @@ export const INITIAL_ARTICLES: NewsArticle[] = [
 ];
 
 export const INITIAL_VIDEOS: VideoEntry[] = [
+  {
+    id: 'jungle-incident-video',
+    title: 'জঙ্গলের ভিতরে দুই যুবক-যুবতী অশালীন কর্মকাণ্ড সম্পূর্ণ ভিডিও',
+    description: 'জঙ্গলের নির্জন পরিবেশে দুই যুবক-যুবতীর অশালীন কর্মকাণ্ডের ভিডিও সামাজিক মাধ্যমে ভাইরাল। বিস্তারিত দেখুন Priya News-এ।',
+    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    youtubeId: 'dQw4w9WgXcQ',
+    customThumbnail: 'https://i.ibb.co.com/Q5QS6wP/Priya-News-Thumbnail-4.png',
+    category: 'entertainment',
+    publishDate: new Date().toISOString(),
+    viewsCount: 380
+  },
   {
     id: 'kitchen-incident-video',
     title: 'রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড পুরো ভিডিও',

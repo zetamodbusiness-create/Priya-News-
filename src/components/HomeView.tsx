@@ -414,8 +414,8 @@ export const HomeView: React.FC = () => {
               className="relative block rounded-xl overflow-hidden mb-3.5 aspect-16/9 bg-black group cursor-pointer border border-white/10"
             >
               <img
-                src="https://i.ibb.co.com/BVGcrTbZ/Priya-News-Thumbnail-3.png"
-                alt="ভাইরাল ভিডিও"
+                src={featuredMain?.featuredImage || 'https://i.ibb.co.com/Q5QS6wP/Priya-News-Thumbnail-4.png'}
+                alt={featuredMain?.title || 'ভাইরাল ভিডিও'}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-85"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -424,12 +424,12 @@ export const HomeView: React.FC = () => {
                 </div>
               </div>
               <span className="absolute bottom-2 left-2 bg-black/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
-                04:28
+                03:45
               </span>
             </a>
 
             <h4 className="text-sm font-bold leading-snug mb-2 text-slate-100">
-              রান্নাঘরে শুরু করে দিলেন আপত্তিকর কর্মকাণ্ড - সম্পূর্ণ আনকাট ভিডিও
+              {featuredMain?.title || 'জঙ্গলের ভিতরে দুই যুবক-যুবতী অশালীন কর্মকাণ্ড'} - সম্পূর্ণ আনকাট ভিডিও
             </h4>
 
             <a
